@@ -8,7 +8,7 @@
     },
     "repository": "https://github.com/stevemustafa/StockGame",
     "author": "Steve Mustafa - aka Mufasaa",
-    "license": "BSD"
+    "license": "BSD",
     "dependencies" : {
       "underscore": "*",
       "express": "~2.5.8",
