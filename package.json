@@ -1,0 +1,12 @@
+{
+  "name": "StockGame",
+  "version": "0.1.0",
+  "description": "Stock game for demonstration purposes, contains three commodities to be traded, Gold, Oil and Pork Bellies.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Steve Mustafa - aka Mufasaa",
+  "license": "BSD"
+}
