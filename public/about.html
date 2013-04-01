@@ -37,8 +37,8 @@
 					<a class="brand" href="#">Stock Trader game</a>
 					<div class="nav-collapse">
 						<ul class="nav">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="about.html">About</a></li>
+							<li><a href="index.html">Home</a></li>
+							<li class="active"><a href="about.html">About</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
@@ -47,54 +47,28 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="span8 offset2 bordered">
-					<div id="chart-container"></div>		
-				</div>
-				<div class="span8 offset2 bordered controls-container" id="chart-controls">
-					<fieldset>
-						<input type="text" id="txtCommodityName" value="Commodity Name" readonly>
-						<input type="text" id="txtCommodityPrice" value="Commodity Price" readonly>
-						<input type="button" id="btnBuy" value="buy 100">
-						<input type="button" id="btnSell" value="sell 100">
-					</fieldset>
-				</div>
-				<div class="span8 offset2 bordered dashboard-container" id="dashboard">
-					<!-- //TODO: 
-							programatically determine the table to generate
-						-->
-						<div class="well">
-							Cash: 
-							<input type="text" id="txtCash" value="Cash on Hand" readonly>		
-						</div>
+				<div class="span10 offset1 ">
+					<p>
+						This is a Stock market simulation game, which is still incomplete.  However, now that the bug has bitten, 
+						I'll be sure to complete it.  
 
-						<table class="table table-bordered table-condensed" id="sharesTable">
-							<tbody>
-								<tr>
-									<td></td>
-									<td>Quantity</td>
-									<td>Value</td>
-									<td>Average Price</td>
-								</tr>
-								<tr id="goldShares">
-									<td>Gold shares</td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr id="oilShares">
-									<td>Oil shares</td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr id="porkBellyShares">
-									<td>Pork Belly shares</td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-							</tbody>
-						</table>
+						Things on my to do list include:
+					</p>
+					<ul>
+						<li>Creating a state where user and "market" data are stored in a database</li>
+						<li>Allowing for multi-tenancy</li>
+						<li>Creating a much larger commodity base</li>
+						<li>Use Hidden Markov Models so as to effect commodity on commodity interactions</li>
+					</ul>
+					<br/>
+					<p>That said, the easiest way to get all that you need to get you going is to clone the repo off of <a href="https://github.com/stevemustafa/stockgame">github</a>, then run "npm install" to install the needed dependencies.  You can then run it by "node index.js".</p>
+					<p>Please note, this has only been tested on Linux and I would consider this to be in the early alpha versions, its an OK proof of concept, sufficient to explore my abilities [somewhat, I still have more tricks up my sleeve :-) ].</p>
+					<p>Please feel free to contact me by email at <a href="mailto:steven.i.mustafa@gmail.com">steven dot i dot mustafa at gmail dot com</a> or by Phone at (403).542.1904 </p>
+					<p>My best wishes,</p>
+					<br/>
+					<br/>
+					<br/>
+					<p>Steve Mustafa</p>
 					</div>
 				</div>
 
