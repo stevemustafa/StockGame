@@ -42,6 +42,12 @@ body {
 	margin-top: 25px;
 }
 
+.dashboard-container input[type=text] label{
+	width:75px;
+	display:inline-block;
+	float: left;
+}
+
 .controls-container input[type=button]{
 	width:200px;
 }

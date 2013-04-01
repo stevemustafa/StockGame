@@ -49,30 +49,63 @@
 		<div class="container">
 			<div class="row">
 				<div class="span8 offset2 bordered">
-					<div id="chart-container">
-
-					</div>		
+					<div id="chart-container"></div>		
 				</div>
 				<div class="span8 offset2 bordered controls-container" id="chart-controls">
 					<fieldset>
 						<input type="text" id="txtCommodityName" value="Commodity Name" readonly>
 						<input type="text" id="txtCommodityPrice" value="Commodity Price" readonly>
 						<input type="button" id="btnBuy" value="buy 100">
-						<input type="button" id="btnBuy" value="sell 100">
+						<input type="button" id="btnSell" value="sell 100">
 					</fieldset>
 				</div>
 				<div class="span8 offset2 bordered dashboard-container" id="dashboard">
-					
+					<!-- //TODO: 
+							programatically determine the table to generate
+						-->
+						<div class="well">
+							Cash: 
+							<input type="text" id="txtCash" value="Cash on Hand" readonly>		
+						</div>
+
+						<table class="table table-bordered table-condensed" id="sharesTable">
+							<tbody>
+								<tr>
+									<td></td>
+									<td>Quantity</td>
+									<td>Value</td>
+									<td>Average Price</td>
+								</tr>
+								<tr id="goldShares">
+									<td>Gold shares</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr id="oilShares">
+									<td>Oil shares</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr id="porkBellyShares">
+									<td>Pork Belly shares</td>
+									<td></td>
+									<td></td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
-			</div>
 
-			<hr>
+				<hr>
 
-			<footer>
-				<p>&copy; Steve Mustafa - aka Mufasaa 2012</p>
-			</footer>
+				<footer>
+					<p>&copy; Steve Mustafa - aka Mufasaa 2012</p>
+				</footer>
 
-		</div> <!-- /container -->
+			</div> <!-- /container -->
 
 		<!-- Le javascript
 		================================================== -->
@@ -91,4 +124,5 @@
 		<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-collapse.js"></script>
 		<script src="http://localhost:1337/socket.io/socket.io.js"></script>
 		<script src="./javascripts/app.js"></script>
+		<script src="./javascripts/accounting.min.js"></script>
 	</body>

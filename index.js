@@ -1,7 +1,7 @@
 
 var yaml = require('js-yaml')
   ,markov = require('./lib/markov.js')
-  ,mongoose = require('mongoose')
+  // ,mongoose = require('mongoose')
   ,net = require('net')
   ,express = require('express')
   ,http = require('http')
@@ -12,45 +12,53 @@ var yaml = require('js-yaml')
 
 
 //configure the server
-// var config = JSON.parse(fs.readFileSync("config.json"));
-// var host = config.host;
-// var port = config.port;
+var config = JSON.parse(fs.readFileSync("config.json"));
+var host = config.host
+    ,socketPort = config.socketPort
+    ,expressPort = config.expressPort
+    ,timeInterval = config.timeInterval
+    ,comms = config.commodities;
+
+
 
 
 console.log("server starting\n\n");
 
+//TODO:
+/*
+Make data stateful in a DB
+*/
 //test mongoose connection
-mongoose.connect('mongodb://localhost/test');
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  console.log("DB Connection check pass.\n");
-});
+// mongoose.connect('mongodb://localhost/test');
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function callback () {
+//   console.log("DB Connection check pass.\n");
+// });
 
-var timeInterval = 1000;
-var stateValues = [[0.65,0.2,0.4],[0.05,0.2,0.2],[0.3,0.6,0.4]];
 var commodities = [];
 
-commodities[0] = markov.createCommodity('gold', 1000, 'Ounces',stateValues);
-commodities[1] = markov.createCommodity('oil', 90, 'Barrel',stateValues);
-commodities[2] = markov.createCommodity('pork bellies', 1, 'kilograms',stateValues);
+for(var i = 0; i < comms.length; i++)
+{
+  commodities[i] = markov.createCommodity(comms[i].name, comms[i].basePrice, comms[i].unit,comms[i].stateValues);
+}
 
 console.log("market ready...\n\n");
 
 /*=================================================================
 Start socket.io server
 ===================================================================*/
+ 
 
-// create a TCP listener for the socket.io coming for the markov values
-// var app = require('http').createServer(handler)
-//   , io = require('socket.io').listen(app)
-  
+app.use(express.static(__dirname + '/public'));
 
-app.listen(4000);
-server.listen(1337);
+// app.listen(4000);
+app.listen(expressPort);
+// server.listen(1337);
+server.listen(socketPort);
 
-console.log("waiting for connections from clients on port http://localhost:4000. Live StockWatch\n");
-console.log("waiting for connections from clients on port 1337 - leet baby!\n");
+console.log("waiting for connections from clients on port http://localhost:" + expressPort + ". Live StockWatch\n");
+console.log("waiting for connections from clients on port " + socketPort + " - leet baby!\n");
 
 app.get('/',function(req,res){
   res.sendfile(__dirname + "/public/index.html");

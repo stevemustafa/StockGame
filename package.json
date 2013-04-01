@@ -5,8 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": "",
-  "author": "Steve Mustafa - aka Mufasaa",
-  "license": "BSD"
-}
+    },
+    "repository": "https://github.com/stevemustafa/StockGame",
+    "author": "Steve Mustafa - aka Mufasaa",
+    "license": "BSD"
+    "dependencies" : {
+      "underscore": "*",
+      "js-yaml": "*",
+      "express": "*",
+      "socket.io": "*"
+    }
+  }

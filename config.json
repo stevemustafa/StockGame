@@ -1,0 +1,74 @@
+{
+    "socketPort": 1337,
+    "expressPort": 4000,
+    "host": "127.0.0.1",
+    "timeInterval": 1000,
+    "commodities": [
+        {
+            "stateValues": [
+                [
+                    0.65,
+                    0.2,
+                    0.4
+                ],
+                [
+                    0.05,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.3,
+                    0.6,
+                    0.4
+                ]
+            ],
+            "name": "gold",
+            "basePrice": 1000,
+            "unit": "Ounces"
+        },
+        {
+            "stateValues": [
+                [
+                    0.65,
+                    0.2,
+                    0.4
+                ],
+                [
+                    0.05,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.3,
+                    0.6,
+                    0.4
+                ]
+            ],
+            "name": "oil",
+            "basePrice": 90,
+            "unit": "Barrel"
+        },
+        {
+            "stateValues": [
+                [
+                    0.65,
+                    0.2,
+                    0.4
+                ],
+                [
+                    0.05,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.3,
+                    0.6,
+                    0.4
+                ]
+            ],
+            "name": "pork bellies",
+            "basePrice": 1,
+            "unit": "kilograms"
+        }
+    ]
+}
