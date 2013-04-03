@@ -34,11 +34,11 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</a>
-					<a class="brand" href="#">Stock Trader game</a>
+					<a class="brand" href="www.mufasaa.info:4000">Stock Trader game</a>
 					<div class="nav-collapse">
 						<ul class="nav">
-							<li class="active"><a href="index.html">Home</a></li>
-							<li><a href="about.html">About</a></li>
+							<li class="active"><a href="/">Home</a></li>
+							<li><a href="/about">About</a></li>
 						</ul>
 					</div><!--/.nav-collapse -->
 				</div>
@@ -47,70 +47,51 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="span8 offset2 bordered">
-					<div id="chart-container"></div>		
-				</div>
-				<div class="span8 offset2 bordered controls-container" id="chart-controls">
-					<fieldset>
-						<input type="text" id="txtCommodityName" value="Commodity Name" readonly>
-						<input type="text" id="txtCommodityPrice" value="Commodity Price" readonly>
-						<input type="button" id="btnBuy" value="buy 100">
-						<input type="button" id="btnSell" value="sell 100">
-					</fieldset>
-				</div>
-				<div class="span8 offset2 bordered dashboard-container" id="dashboard">
-					<!-- //TODO: 
-							programatically determine the table to generate
-						-->
-						<div class="well">
-							Cash: 
-							<input type="text" id="txtCash" value="Cash on Hand" readonly>		
-						</div>
+				<div class="span3 bordered dashboard-container" id="dashboard">
+						<label for="txtCash">Cash: </label>
+						<span><input type="text" id="txtCash" value="Cash on Hand" readonly></span>
 
 						<table class="table table-bordered table-condensed" id="sharesTable">
-							<tbody>
+							<thead>
 								<tr>
-									<td></td>
+									<td>Commodity</td>
 									<td>Quantity</td>
 									<td>Value</td>
 									<td>Average Price</td>
 								</tr>
-								<tr id="goldShares">
-									<td>Gold shares</td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr id="oilShares">
-									<td>Oil shares</td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
-								<tr id="porkBellyShares">
-									<td>Pork Belly shares</td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>
+							</thead>
+							<tbody>
 							</tbody>
 						</table>
 					</div>
+					<div class="span8">
+						<div class="bordered">
+							<div id="chart-container"></div>		
+						</div>
+						<div class="bordered controls-container" id="chart-controls">
+							<fieldset>
+								<input type="text" id="txtCommodityName" value="Commodity Name" readonly>
+								<input type="text" id="txtCommodityPrice" value="Commodity Price" readonly>
+								<input type="button" class ="btn btn-primary" id="btnBuy" value="buy 100">
+								<input type="button" class ="btn btn-danger" id="btnSell" value="sell 100">
+							</fieldset>
+						</div>
+
+					</div>
 				</div>
-
 				<hr>
-
-				<footer>
-					<p>&copy; Steve Mustafa - aka Mufasaa 2012</p>
-				</footer>
-
 			</div> <!-- /container -->
+
+			<footer .navbar-fixed-bottom>
+				<p>&copy; Steve "Mufasaa" Mustafa</p>
+			</footer>
 
 		<!-- Le javascript
 		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="http://code.jquery.com/jquery.min.js"></script>
 		<script src="http://code.highcharts.com/highcharts.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.4.5/numeral.min.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
 		<script src="https://raw.github.com/twitter/bootstrap/master/js/bootstrap-transition.js"></script>

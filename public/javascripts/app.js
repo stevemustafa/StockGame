@@ -1,12 +1,22 @@
 var cash = 1000000;
 var shares = [[0,0,0],[0,0,0],[0,0,0]];
 
+
+function buildDashboard(marketData)
+{
+    //to be safe, clear the rows from the table
+    $('#sharesTable > tbody').empty();
+    for(var i = 0; i < marketData.length; i++)
+    {
+        $('#sharesTable > tbody:last').append('<tr><td>' + marketData[i] + '</td><td></td><td></td><td></td></tr>');
+    }
+}
+
 function updateValues(){
     $("#txtCash").val(cash);
 
     var tableMap = $('#sharesTable > tbody > tr').map(function (){
-        return $(this).children().map(function ()
-        {
+        return $(this).children().map(function (){
             return $(this);
         });
     });
@@ -16,9 +26,11 @@ function updateValues(){
     {
         for(var j =0; j < shares[i].length; j++){
             if (j==2 && shares[i][0] == 0) 
-                tableMap[i+1][j+1].text(0);
-            else
-                tableMap[i+1][j+1].text(shares[i][j]);
+                tableMap[i][j].text(0);
+            else{
+                console.log(numeral(shares[i][j]).format('$0,0.00'));
+                tableMap[i][j].text(numeral(shares[i][j]).format('$0,0.00'));
+            }
         }
     }
 }
@@ -41,7 +53,7 @@ $(function () {
                     legendItemClick: function(event) {
                         //select the item from the legend and pipe it to the controls container
                         $('#txtCommodityName').val(this.name);
-                        $('#txtCommodityPrice').val(this.data[this.data.length-1].y);
+                        $('#txtCommodityPrice').val(numeral(this.data[this.data.length-1].y).format('$0,0.00'));
                         //TODO:
                         /*
                         Bind the event so that with every update, the price is also updated.
@@ -81,10 +93,12 @@ series : []
 $(function(){
 
     var socket = io.connect('http://localhost:1337');
-    socket.on('prices', function (data) { handleNewState(data) });
 
-    function handleNewState(data){
-        var series;
+    socket.on('connect',function(){
+        socket.emit('market');
+    });
+
+    socket.on('prices', function (data) { var series;
         var time = Date.parse('now').seconds;
 
         //inject the received data into the series object
@@ -96,7 +110,7 @@ $(function(){
             
             var com = findCommoditySeries(series, item);
             
-            if(com == -1){
+            if(com === -1){
                 chart.highcharts().addSeries({
                     name: item.commodity,
                     type: 'spline',
@@ -112,13 +126,19 @@ $(function(){
                 chart.highcharts().redraw();
             }
         }
+        socket.emit('prices');
+    });
+    socket.on('market', function (data){ 
 
-    }
+        //build the dashboard
+        buildDashboard(_.map(data.market, function(item){return item.commodity.name;}));
+        
+    });
 
     function findCommoditySeries(series, commodity){
         for(var i = 0; i < series.length; i++)
         {
-            if(series[i].name == commodity.commodity)
+            if(series[i].name === commodity.commodity)
                 return i;
         }
         return -1; 
@@ -128,13 +148,12 @@ $(function(){
 $(function() {
 
     $("#txtCash").val(cash);
-
 });
 
 $(function() {
 
     $("#btnBuy").click(function(){
-        var cost = $('#txtCommodityPrice').val() * 100;
+        var cost = numeral($('#txtCommodityPrice')).value() * 100;
         if((cash - cost) >= 0)
         {
             cash -= cost;
@@ -165,7 +184,7 @@ $(function() {
 
 
     $("#btnSell").click(function(){
-        var worth = $('#txtCommodityPrice').val() * 100;
+        var worth = numeral($('#txtCommodityPrice')).value() * 100;
         
         // check that there are shares, you cannot sell what you have - at least not yet
 
@@ -174,21 +193,21 @@ $(function() {
         switch($("#txtCommodityName").val())
             {
                 case "gold": 
-                    if(shares[0][0] == 0)
+                    if(shares[0][0] === 0)
                         return;
                     shares[0][2] =  (shares[0][0] > 100) ? (shares[0][1] - worth)/(shares[0][0] - 100) : shares[0][1];
                     shares[0][0] -= 100;
                     shares[0][1] = shares[0][0] * shares[0][2]
                     break;
                 case "oil": 
-                    if(shares[1][0] == 0)
+                    if(shares[1][0] === 0)
                         return;
                     shares[1][2] =  (shares[1][0] > 100) ? (shares[1][1] - worth)/(shares[1][0] - 100) : shares[1][1];
                     shares[1][0] -= 100;
                     shares[1][1] = shares[1][0] * shares[1][2]
                     break;
                 case "pork bellies": 
-                    if(shares[2][0] == 0)
+                    if(shares[2][0] === 0)
                         return;
                     shares[2][2] =  (shares[2][0] > 100) ? (shares[2][1] - worth)/(shares[2][0] - 100) : shares[2][1];
                     shares[2][0] -= 100;

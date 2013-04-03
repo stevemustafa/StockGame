@@ -11,9 +11,10 @@
     "license": "BSD",
     "dependencies" : {
       "underscore": "*",
-      "express": "~2.5.8",
+      "express": "~3.x",
       "socket.io": "~0.9",
-      "mongoose": "3.6.2"
+      "mongoose": "3.6.2",
+      "numeral": "1.4.5"
     },
     "engine": "node 0.10.2"
   }

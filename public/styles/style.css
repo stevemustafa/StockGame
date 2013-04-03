@@ -42,10 +42,19 @@ body {
 	margin-top: 25px;
 }
 
-.dashboard-container input[type=text] label{
-	width:75px;
+.dashboard-container label{
 	display:inline-block;
 	float: left;
+	margin: 10px;
+	width: 40px;
+}
+
+span { display: block; overflow: hidden;}
+
+#txtCash {
+	width: 150px;
+	display:inline-block;
+	margin: 5px 2px;
 }
 
 .controls-container input[type=button]{
