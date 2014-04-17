@@ -1,3 +1,5 @@
+** Still incomplete, have to finish when I am free **
+
 This is a Stock market simulation game, which is still incomplete. However, now that the bug has bitten, I'll be sure to complete it. Things on my to do list include:
 
 *Creating a state where user and "market" data are stored in a database
