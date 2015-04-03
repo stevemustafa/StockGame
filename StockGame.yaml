@@ -1,0 +1,18 @@
+#test store by Steven Mustafa
+
+store:
+	title: 		Steven Mustafa app store
+	contact:	Steven Mustafa <steven.i.mustafa@gmail.com>
+	
+apps:
+-	name:	StockGame
+	id:	stockgame
+	desc:	A simple stockgame in Node.js
+	framework:	node
+	runtime:	node
+	commit:		master
+	src:	https://github.com/stevemustafa/StockGame.git
+	info:	https://github.com/stevemustafa/StockGame.git#readme
+	license:	MIT
+	mem:	512
+	
