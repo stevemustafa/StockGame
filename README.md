@@ -11,7 +11,7 @@ That said, the easiest way to get all that you need to get you going is to clone
 
 Please note, this has only been tested on Linux and I would consider this to be in the early alpha versions, its an OK proof of concept, sufficient to explore my abilities [somewhat, I still have more tricks up my sleeve :-) ].
 
-Please feel free to contact me by email at <steven.i.mustafa@gmail.com> or by Phone at (403).542.1904
+Please feel free to contact me by email at <steven.i.mustafa@gmail.com> or by Phone at (587).703.8841
 
 My best wishes,
 
