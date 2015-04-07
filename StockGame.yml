@@ -3,14 +3,25 @@ store:
 	contact:	Steven Mustafa <steven.i.mustafa@gmail.com>
 	
 apps:
--	name:	StockGame
-	id:	stockgame
-	desc:	A simple stockgame in Node.js
-	framework:	node
-	runtime:	node
-	commit:		master
-	src:	https://github.com/stevemustafa/StockGame.git
-	info:	https://github.com/stevemustafa/StockGame.git#readme
-	license:	MIT
-	mem:	512
+- name:	StockGame
+  id:	stockgame
+  desc:	A simple stockgame in Node.js
+  framework:	node
+  runtime:	node
+  commit:		master
+  src:	https://github.com/stevemustafa/StockGame.git
+  info:	https://github.com/stevemustafa/StockGame.git#readme
+  license:	MIT
+  mem:	512
+  icon: default
 	
+- name: Node Env
+  id: node-env
+  desc: Simple node.js sample application that prints server environment variables
+  framework: node
+  runtime: node
+  commit: master
+  src: https://github.com/Stackato-Apps/node-env.git
+  info: https://github.com/Stackato-Apps/node-env/#readme
+  icon: default
+  mem: 32
